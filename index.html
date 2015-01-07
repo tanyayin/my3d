@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0038)http://pfb.skinjc.com/special/yyjs/### -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+
+<title>上海三级皮肤病专科医院_上海江城皮肤病医院_做中国最专业的皮肤病专科医院</title>
+<link rel="stylesheet" type="text/css" href="./3d/css.css">
+<script type="text/javascript" src="http://js.ql91.cn/ql91com/ql91/jquery.js"></script>
+
+<body>
+
+
+<div class="box66 commonWidth_1000">  
+        <div class="til2"></div>
+</div>        
+<div class="box111" id="focus_Box1">
+        <span class="prev"></span>
+        <span class="next"></span>
+        <ul>
+        <li style="display: block; width: 520px; height: 277px; top: 20px; left: 130px; z-index: 3;"><img width="619" height="323" src="./3d/lb1.jpg" style="opacity: 1;">
+        </li>
+        <li style="display: block; width: 625px; height: 329px; top: 0px; left: 195px; z-index: 4;"><a href="http://pfb.skinjc.com/special/zjzt/" target="_blank"><img width="619" height="323" src="./3d/lb2.jpg" style="opacity: 1;"></a>
+        </li>
+        <li style="display: block; width: 520px; height: 277px; top: 20px; left: 360px; z-index: 3;"><a href="http://pfb.skinjc.com/special/yysb/" target="_blank"><img width="619" height="323" src="./3d/lb3.jpg" style="opacity: 1;"></a>
+        </li>
+        <li style="display: block; width: 310px; height: 172px; top: 60px; left: 680px; z-index: 1;"><a href="http://pfb.skinjc.com/special/jcgk/" target="_blank"><img width="619" height="323" src="./3d/lb4.jpg" style="opacity: 1;"></a>
+        </li>
+        <li style="display: block; width: 200px; height: 100px; top: 100px; left: 200px; z-index: 0;"><a href="http://pfb.skinjc.com/special/zjzt/" target="_blank"><img width="619" height="323" src="./3d/lb2.jpg" style="opacity: 1;"></a>
+        </li>
+        <li style="display: block; width: 310px; height: 172px; top: 60px; left: 0px; z-index: 1;"><a href="http://pfb.skinjc.com/special/zxlf/" target="_blank"><img width="619" height="323" src="./3d/lb5.jpg" style="opacity: 1;"></a>
+        </li>
+
+        </ul>
+</div> 
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+function ZoomPic ()
+{
+	this.initialize.apply(this, arguments)	
+}
+ZoomPic.prototype = 
+{
+	initialize : function (id)
+	{
+		var _this = this;
+		this.wrap = typeof id === "string" ? document.getElementById(id) : id;
+		this.oUl = this.wrap.getElementsByTagName("ul")[0];
+		this.aLi = this.wrap.getElementsByTagName("li");
+		this.aBtxt = this.wrap.getElementsByTagName("box_txt");
+		this.prev = this.wrap.getElementsByTagName("span")[0];
+		this.next = this.wrap.getElementsByTagName("span")[1];
+		this.timer = 1000;
+		this.aSort = [];
+		this.iCenter = 3;
+		this._doPrev = function () {return _this.doPrev.apply(_this)};
+		this._doNext = function () {return _this.doNext.apply(_this)};
+		this.options = [
+			{width:310, height:172, top:60, left:0, zIndex:1},	
+			{width:520, height:277, top:20, left:130, zIndex:3},
+			{width:625, height:329, top:0, left:195, zIndex:4},
+			{width:520, height:277, top:20, left:360, zIndex:3},
+			{width:310, height:172, top:60, left:680, zIndex:1},
+			{width:200, height:100, top:100, left:200, zIndex:0},
+
+		];
+		for (var i = 0; i < this.aLi.length; i++) this.aSort[i] = this.aLi[i];
+		this.aSort.unshift(this.aSort.pop());
+		this.setUp();
+		this.addEvent(this.prev, "click", this._doPrev);
+		this.addEvent(this.next, "click", this._doNext);
+		this.doImgClick();		
+		this.timer = setInterval(function ()
+		{
+			_this.doNext()	
+		}, 3000);		
+		this.wrap.onmouseover = function ()
+		{
+			clearInterval(_this.timer)	
+		};
+		this.wrap.onmouseout = function ()
+		{
+			_this.timer = setInterval(function ()
+			{
+				_this.doNext()	
+			}, 3000);	
+		}
+	},
+	doPrev : function ()
+	{
+		this.aSort.unshift(this.aSort.pop());
+		this.setUp()
+	},
+	doNext : function ()
+	{
+		this.aSort.push(this.aSort.shift());
+		this.setUp()
+	},
+	doImgClick : function ()
+	{
+		var _this = this;
+		for (var i = 0; i < this.aSort.length; i++)
+		{
+			this.aSort[i].onclick = function ()
+			{
+				if (this.index > _this.iCenter)
+				{
+					for (var i = 0; i < this.index - _this.iCenter; i++) _this.aSort.push(_this.aSort.shift());
+					_this.setUp()
+				}
+				else if(this.index < _this.iCenter)
+				{
+					for (var i = 0; i < _this.iCenter - this.index; i++) _this.aSort.unshift(_this.aSort.pop());
+					_this.setUp()
+				}
+			}
+		}
+	},
+	setUp : function ()
+	{
+		var _this = this;
+		var i = 0;
+		for (i = 0; i < this.aSort.length; i++) this.oUl.appendChild(this.aSort[i]);
+		for (i = 0; i < this.aSort.length; i++)
+		{
+			this.aSort[i].index = i;
+			if (i < 7)
+			{
+				//alert(i);
+				this.css(this.aSort[i], "display", "block");
+				this.doMove(this.aSort[i], this.options[i], function ()
+				{
+					_this.doMove(_this.aSort[_this.iCenter].getElementsByTagName("img")[0], {opacity:100}, function ()
+					{
+						_this.doMove(_this.aSort[_this.iCenter].getElementsByTagName("img")[0], {opacity:100}, function ()
+						{
+							_this.aSort[_this.iCenter].onmouseover = function ()
+							{
+								_this.doMove(this.getElementsByTagName("img")[0], {bottom:0})
+							};
+							_this.aSort[_this.iCenter].onmouseout = function ()
+							{
+								_this.doMove(this.getElementsByTagName("img")[0], {bottom:-100})
+							}
+							
+							
+							
+						})
+					})
+				});
+			}
+			else
+			{
+				this.css(this.aSort[i], "display", "none");
+				this.css(this.aSort[i], "width", 0);
+				this.css(this.aSort[i], "height", 0);
+				this.css(this.aSort[i], "top", 37);
+				this.css(this.aSort[i], "left", this.oUl.offsetWidth / 2)
+			}
+			if (i < this.iCenter || i > this.iCenter)
+			{
+				this.css(this.aSort[i].getElementsByTagName("img")[0], "opacity", 100)
+				this.aSort[i].onmouseover = function ()
+				{
+					_this.doMove(this.getElementsByTagName("img")[0], {opacity:100})	
+				};
+				this.aSort[i].onmouseout = function ()
+				{
+					_this.doMove(this.getElementsByTagName("img")[0], {opacity:100})
+				};
+				this.aSort[i].onmouseout();
+			}
+			else
+			{
+				this.aSort[i].onmouseover = this.aSort[i].onmouseout = null
+			}
+		}		
+	},
+	addEvent : function (oElement, sEventType, fnHandler)
+	{
+		return oElement.addEventListener ? oElement.addEventListener(sEventType, fnHandler, false) : oElement.attachEvent("on" + sEventType, fnHandler)
+	},
+	css : function (oElement, attr, value)
+	{
+		if (arguments.length == 2)
+		{
+			return oElement.currentStyle ? oElement.currentStyle[attr] : getComputedStyle(oElement, null)[attr]
+		}
+		else if (arguments.length == 3)
+		{
+			switch (attr)
+			{
+				case "width":
+				case "height":
+				case "top":
+				case "left":
+				case "bottom":
+					oElement.style[attr] = value + "px";
+					break;
+				case "opacity" :
+					oElement.style.filter = "alpha(opacity=" + value + ")";
+					oElement.style.opacity = value / 100;
+					break;
+				default :
+					oElement.style[attr] = value;
+					break
+			}	
+		}
+	},
+	doMove : function (oElement, oAttr, fnCallBack)
+	{
+		var _this = this;
+		clearInterval(oElement.timer);
+		oElement.timer = setInterval(function ()
+		{
+			var bStop = true;
+			for (var property in oAttr)
+			{
+				var iCur = parseFloat(_this.css(oElement, property));
+				property == "opacity" && (iCur = parseInt(iCur.toFixed(2) * 100));
+				var iSpeed = (oAttr[property] - iCur) / 7;
+				iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+				
+				if (iCur != oAttr[property])
+				{
+					bStop = false;
+					_this.css(oElement, property, iCur + iSpeed)
+				}
+			}
+			if (bStop)
+			{
+				clearInterval(oElement.timer);
+				fnCallBack && fnCallBack.apply(_this, arguments)	
+			}
+		}, 30)
+	}
+};
+</script>
+<script type="text/javascript">
+	  var tm,tm1;
+	  setTimeout(function () {
+		
+		  new ZoomPic("focus_Box1");
+		  tm = window.setInterval("changead()", 2000);
+		 
+	  },1000)
+	 
+	  var mIn = function (n) {
+		  window.clearInterval(tm);
+		  num = n;
+		  changead();
+	  }
+	  function mOut() {
+		  tm = window.setInterval("changead()", 2000);
+	  }  
+</script>
+
+
+
+</body></html>
